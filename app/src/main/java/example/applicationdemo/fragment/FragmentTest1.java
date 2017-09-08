@@ -15,6 +15,7 @@ public class FragmentTest1 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+         // 看看看
         setContentView(R.layout.fragment_1);
     }
 }
