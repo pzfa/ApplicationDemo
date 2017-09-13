@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import example.applicationdemo.R;
 
@@ -17,6 +18,13 @@ public class FragmentState2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_state2,container,false);
+        return inflater.inflate(R.layout.fragment_state2, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        WebView webView = (WebView) getView().findViewById(R.id.wv);
+        webView.loadUrl("http://www.jikexueyuan.com");
     }
 }

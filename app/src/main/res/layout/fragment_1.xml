@@ -7,18 +7,12 @@
     <fragment
         android:id="@+id/fragment1"
         android:tag="aaaa"
-        android:name="example.applicationdemo.fragment.FragmentState"
+        android:name="example.applicationdemo.glide.GlideExample"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
-    <fragment
-        android:id="@+id/fragment2"
-        android:tag="bbb"
-        android:name="example.applicationdemo.fragment.FragmentState2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+
 
 
 </LinearLayout>

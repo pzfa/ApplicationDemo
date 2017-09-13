@@ -14,6 +14,8 @@ import java.util.List;
 
 import example.applicationdemo.adapter.MainAdapter;
 import example.applicationdemo.fragment.FragmentTest1;
+import example.applicationdemo.fragment.FragmentTest2;
+import example.applicationdemo.glide.GlideActivity;
 import example.applicationdemo.model.Advertisement;
 import example.applicationdemo.model.Cat;
 import example.applicationdemo.model.DisplayableItem;
@@ -41,6 +43,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, FragmentTest1.class));
+            }
+        });
+
+
+
+        findViewById(R.id.fragment_test1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FragmentTest2.class));
+            }
+        });
+        findViewById(R.id.glide_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, GlideActivity.class));
             }
         });
     }
