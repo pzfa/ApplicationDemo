@@ -124,6 +124,23 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
 
+    /**
+     * 设置TextView的值
+     *
+     * @param viewId
+     * @param text
+     * @return
+     */
+    public ViewHolder setText(int viewId, View.OnClickListener onClickListener, String text) {
+        TextView tv = getView(viewId);
+        tv.setText(text);
+        if(onClickListener!=null){
+            tv.setOnClickListener(onClickListener);
+        }
+        return this;
+    }
+
+
 
     /**
      * 设置TextView的值

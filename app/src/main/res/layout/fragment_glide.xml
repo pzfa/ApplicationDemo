@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<example.applicationdemo.view.GlideView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<example.applicationdemo.view.GlideView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/glide_view"
-    android:background="@color/colorPrimaryDark"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:id="@+id/go_glide"
-        android:text="加载图片"
-        android:textColor="@color/colorAccent"
-        android:gravity="center"
-        android:layout_height="40dp" />
-
-    <ImageView
-        android:id="@+id/image_glide"
-        android:scaleType="fitXY"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/go_glide"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="加载图片"
+                android:textColor="@color/colorAccent" />
+
+            <ImageView
+                android:id="@+id/image_glide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/glide_placeholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/glide_errorr"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/glide_crossfade"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="center" />
+
+            <ImageView
+                android:id="@+id/glide_override"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                />
+
+            <ImageView
+                android:id="@+id/glide_gif"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </example.applicationdemo.view.GlideView>
