@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<example.applicationdemo.view.RetrofitView xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/RetrofitView"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/get_tv"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="get"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/response_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="数据》》"
+        />
+
+</example.applicationdemo.view.RetrofitView>

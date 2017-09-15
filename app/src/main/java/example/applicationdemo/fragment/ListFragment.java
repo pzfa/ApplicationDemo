@@ -15,6 +15,7 @@ import example.applicationdemo.commom.FragmentService;
 import example.applicationdemo.controller.ListFragmentController;
 import example.applicationdemo.glide.GlideExample;
 import example.applicationdemo.glide.GlideListFragment;
+import example.applicationdemo.retrofit.RetrofitFragment;
 import example.applicationdemo.view.ListFragmentView;
 
 /**
@@ -70,6 +71,7 @@ public class ListFragment extends Fragment implements View.OnClickListener {
             case 0:
                 arrayList.add(new GlideListFragment());
                 arrayList.add(new GlideExample());
+                arrayList.add(new RetrofitFragment());
                 break;
         }
         listFragmentView = (ListFragmentView) getView().findViewById(R.id.List_fregment);
