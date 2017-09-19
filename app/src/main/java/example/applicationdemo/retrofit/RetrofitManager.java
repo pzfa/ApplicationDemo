@@ -25,9 +25,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitManager {
-    private static final String CACHE_NAME  = "retrofitcache";
+    private static final String CACHE_NAME = "retrofitcache";
     private static Retrofit retrofit = null;
     private static String url = "";
+
+
     public static Retrofit getInstance(String baseUrl) {
         url = baseUrl;
         if (retrofit == null) {
@@ -45,35 +47,18 @@ public class RetrofitManager {
                     @Override
                     public void log(String message) {
                         //打印retrofit日志
-                        Logger.d("aaaa",message);
+                        Logger.d("aaaa", message);
                     }
                 }
         );
         // 开发模式记录整个body，否则只记录基本信息如返回200，http协议版本等
         if (BuildConfig.DEBUG) {
-            Log.d("aaaa","DEBUG = ");
+            Log.d("aaaa", "DEBUG = ");
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         } else {
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
         }
-//        Interceptor headerInterceptor = new Interceptor() {
-//
-//            @Override
-//            public Response intercept(Chain chain) throws IOException {
-//                Request originalRequest = chain.request();
-//                Request.Builder builder = originalRequest.newBuilder();
-//                builder.header("appid", "1");
-//                builder.header("timestamp", System.currentTimeMillis() + "");
-//                builder.header("appkey", "zRc9bBpQvZYmpqkwOo");
-//                builder.header("signature", "dsljdljflajsnxdsd");
-//
-//                Request.Builder requestBuilder =builder.method(originalRequest.method(), originalRequest.body());
-//                Request request = requestBuilder.build();
-//                return chain.proceed(request);
-//            }
-//
-//        };
-//        builder.addInterceptor(headerInterceptor);//统一参数
+
 
         //设置缓存目录
         File cacheFile = new File(DemoApplication.getContext().getExternalCacheDir(), CACHE_NAME);
@@ -111,7 +96,8 @@ public class RetrofitManager {
                 return response;
             }
         };
-        builder.addInterceptor(loggingInterceptor)
+        builder.addInterceptor(new CommonInterceptor())//统一参数
+                .addInterceptor(loggingInterceptor)
                 .addInterceptor(cacheInterceptor)
                 .cache(cache)
                 .connectTimeout(15, TimeUnit.SECONDS)//设置超时
@@ -130,4 +116,8 @@ public class RetrofitManager {
         return retrofit;
     }
 
+
+    public <T> T createService(Class<T> service) {
+        return retrofit.create(service);
+    }
 }

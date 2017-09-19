@@ -30,11 +30,7 @@ public class RetrofitController implements View.OnClickListener {
 
         retrofit =
                 RetrofitManager.getInstance("http://gank.io/");
-//                new Retrofit.Builder()
-//                .baseUrl("http://gank.io/")
-//                .addConverterFactory(GsonConverterFactory.create())//添加GsonBuilder
-//                .client(client)
-//                .build();
+
     }
 
     @Override
@@ -48,7 +44,6 @@ public class RetrofitController implements View.OnClickListener {
     }
 
     private void getRetrofit() {
-
 
         RetrofitService retrofitService = retrofit.create(RetrofitService.class);
         Call<ResponseBody> call = retrofitService.getAndroidInfo();
