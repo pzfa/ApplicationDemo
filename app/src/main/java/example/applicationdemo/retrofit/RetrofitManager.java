@@ -2,6 +2,7 @@ package example.applicationdemo.retrofit;
 
 import android.util.Log;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
@@ -110,7 +111,7 @@ public class RetrofitManager {
                 //设置 Json 转换器
                 .addConverterFactory(GsonConverterFactory.create())
                 //RxJava 适配器
-//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)
                 .build();
         return retrofit;

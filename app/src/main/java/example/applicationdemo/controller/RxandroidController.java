@@ -4,17 +4,27 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
 import example.applicationdemo.R;
+import example.applicationdemo.retrofit.RetrofitManager;
+import example.applicationdemo.retrofit.RetrofitService;
 import example.applicationdemo.view.RxandroidView;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
 
 /**
  * Created by cai.jia on 2017/9/19 0019
@@ -43,7 +53,117 @@ public class RxandroidController implements View.OnClickListener {
             case R.id.test_thread2:
                 Thread2ObservableDemo();
                 break;
+            case R.id.test_http:
+                HttpObservable();
+                break;
+            case R.id.test_map:
+                ObservableMap();
+                break;
+            case R.id.test_flatMap:
+                ObservableFlatMap();
+
+                break;
         }
+
+    }
+
+    private void ObservableFlatMap() {
+        //concatMap吧, 它和flatMap的作用几乎一模一样, 只是它的结果是严格按照上游发送的顺序来发送的
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<Integer> emitter) throws Exception {
+                emitter.onNext(1);
+                emitter.onNext(2);
+                emitter.onNext(3);
+            }
+        }).flatMap(new Function<Integer, ObservableSource<String>>() {
+            @Override
+            public ObservableSource<String> apply(@NonNull Integer integer) throws Exception {
+                ArrayList<String> arrayList = new ArrayList();
+                for(int i = 0;i<3;i++){
+                    arrayList.add("I am value " + i);
+                }
+                return Observable.fromIterable(arrayList).delay(10, TimeUnit.MILLISECONDS);
+
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(@NonNull String s) throws Exception {
+                Log.d(TAG, "onNext...."+s);
+
+            }
+        });
+    }
+
+
+    private void ObservableMap() {
+        //map  中的函数作用是将圆形事件转换为矩形事件, 从而导致下游接收到的事件就变为了矩形.
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<Integer> emitter) throws Exception {
+                emitter.onNext(1);
+                emitter.onNext(2);
+                emitter.onNext(3);
+                emitter.onComplete();
+
+            }
+        }).map(new Function<Integer, String>() {
+            @Override
+            public String apply(@NonNull Integer integer) throws Exception {
+                return "this is result "+integer;
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(@NonNull String s) throws Exception {
+                Log.d(TAG, "onNext...."+s);
+            }
+        });
+    }
+
+    private void HttpObservable() {
+        Retrofit instance = RetrofitManager.getInstance("http://gank.io/");
+        RetrofitService retrofitService = instance.create(RetrofitService.class);
+        JSONObject jsonObject = new JSONObject();
+
+
+//        ResponseObserver responseObserver = new ResponseObserver(context);
+//        retrofitService.getAndroidDate()
+//                .subscribe(responseObserver);
+
+
+
+//        retrofitService
+//                .getAndroidDate()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Observer<ResponseBody>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                        Log.d(TAG, "subscribe");
+//                    }
+//
+//                    @Override
+//                    public void onNext(ResponseBody responseBody) {
+//                        try {
+//                            Log.d(TAG, "onNext...."+responseBody.string());
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        Log.d(TAG, "onError");
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        Log.d(TAG, "onComplete");
+//
+//                    }
+//                });
 
     }
 

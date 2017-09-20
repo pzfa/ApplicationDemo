@@ -29,6 +29,27 @@
             android:text="Observable Thread2 Observer"
             android:layout_width="match_parent"
             android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/test_http"
+            android:gravity="center"
+            android:text="Observable_http"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/test_map"
+            android:gravity="center"
+            android:text="Observable_map"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/test_flatMap"
+            android:gravity="center"
+            android:text="Observable_flatMap"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
     </LinearLayout>
 
 
