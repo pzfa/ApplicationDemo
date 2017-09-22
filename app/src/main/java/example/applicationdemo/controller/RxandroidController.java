@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import example.applicationdemo.R;
+import example.applicationdemo.retrofit.ApiException;
 import example.applicationdemo.retrofit.RetrofitManager;
 import example.applicationdemo.retrofit.RetrofitService;
 import example.applicationdemo.view.RxandroidView;
@@ -45,8 +46,9 @@ public class RxandroidController implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.test1:
 //                ObservableDemo();
-                ObservableDemo1();
-                break;
+                throw new ApiException(100);
+//                ObservableDemo1();
+//                break;
             case R.id.test_thread:
                 ThreadObservableDemo();
                 break;

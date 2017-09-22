@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import example.applicationdemo.BuildConfig;
 import example.applicationdemo.DemoApplication;
+import example.applicationdemo.http.ConverterFactory;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
@@ -19,7 +20,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by cai.jia on 2017/9/15 0015
@@ -109,7 +109,7 @@ public class RetrofitManager {
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 //设置 Json 转换器
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(ConverterFactory.create())
                 //RxJava 适配器
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)

@@ -1,20 +1,20 @@
-package example.applicationdemo.retrofit;
+package example.applicationdemo.http;
 
 /**
  * Created by cai.jia on 2017/9/18 0018
  */
 
 public class BaseCallModel<T> {
-    public int errno;
+    public String errno;
     public String msg;
     private boolean error;
     public T data;
 
-    public int getErrno() {
+    public String getErrno() {
         return errno;
     }
 
-    public void setErrno(int errno) {
+    public void setErrno(String errno) {
         this.errno = errno;
     }
 

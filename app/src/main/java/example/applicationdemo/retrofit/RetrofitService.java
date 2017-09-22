@@ -1,5 +1,6 @@
 package example.applicationdemo.retrofit;
 
+import example.applicationdemo.http.BaseCallModel;
 import example.applicationdemo.model.MeizhiModel;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;

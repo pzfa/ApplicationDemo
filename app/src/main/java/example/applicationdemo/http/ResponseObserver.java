@@ -1,8 +1,9 @@
-package example.applicationdemo.retrofit;
+package example.applicationdemo.http;
 
 import android.app.Activity;
 import android.content.Context;
 
+import example.applicationdemo.retrofit.ResultListener;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -29,17 +30,32 @@ public class ResponseObserver<T> implements Observer<T>{
 
     @Override
     public void onNext(T t) {
-        BaseCallModel resultListener = new BaseCallModel();
-        resultListener.setData(t);
+        BaseCallModel baseCallModel = new BaseCallModel();
+        baseCallModel.setData(t);
+        setResultData(baseCallModel);
     }
 
+
     @Override
-    public void onError(Throwable e) {
+    public void onError(Throwable error) {
+        String message = error.getMessage();
+        BaseCallModel baseCallModel = new BaseCallModel();
+        baseCallModel.setErrno(message);
+        setResultData(baseCallModel);
+
 
     }
 
     @Override
     public void onComplete() {
 
+    }
+
+
+    private void setResultData(BaseCallModel baseCallModel) {
+
+        if(resultListener!=null){
+            resultListener.onResultBack(baseCallModel);
+        }
     }
 }
