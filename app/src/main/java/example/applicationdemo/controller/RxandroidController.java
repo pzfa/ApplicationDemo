@@ -4,15 +4,10 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import example.applicationdemo.R;
-import example.applicationdemo.retrofit.ApiException;
-import example.applicationdemo.retrofit.RetrofitManager;
-import example.applicationdemo.retrofit.RetrofitService;
 import example.applicationdemo.view.RxandroidView;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -25,7 +20,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.Retrofit;
 
 /**
  * Created by cai.jia on 2017/9/19 0019
@@ -45,9 +39,9 @@ public class RxandroidController implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.test1:
-//                ObservableDemo();
-                throw new ApiException(100);
-//                ObservableDemo1();
+                ObservableDemo();
+//                throw new ApiException(100);
+////                ObservableDemo1();
 //                break;
             case R.id.test_thread:
                 ThreadObservableDemo();
@@ -123,9 +117,9 @@ public class RxandroidController implements View.OnClickListener {
     }
 
     private void HttpObservable() {
-        Retrofit instance = RetrofitManager.getInstance("http://gank.io/");
-        RetrofitService retrofitService = instance.create(RetrofitService.class);
-        JSONObject jsonObject = new JSONObject();
+//        Retrofit instance = RetrofitManager.getInstance("http://gank.io/");
+//        RetrofitService retrofitService = instance.create(RetrofitService.class);
+//        JSONObject jsonObject = new JSONObject();
 
 
 //        ResponseObserver responseObserver = new ResponseObserver(context);

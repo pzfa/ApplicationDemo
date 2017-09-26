@@ -18,6 +18,7 @@ import example.applicationdemo.glide.GlideListFragment;
 import example.applicationdemo.mvp.MVPTestActivity;
 import example.applicationdemo.retrofit.RetrofitFragment;
 import example.applicationdemo.rxandroid.RxandroidFragment;
+import example.applicationdemo.service.ServiceFragment;
 import example.applicationdemo.view.ListFragmentView;
 
 /**
@@ -76,6 +77,7 @@ public class ListFragment extends Fragment implements View.OnClickListener {
                 arrayList.add(new RetrofitFragment());
                 arrayList.add(new RxandroidFragment());
                 arrayList.add(new MVPTestActivity());
+                arrayList.add(new ServiceFragment());
                 break;
         }
         listFragmentView = (ListFragmentView) getView().findViewById(R.id.List_fregment);

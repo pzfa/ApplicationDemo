@@ -1,6 +1,7 @@
 package example.applicationdemo.retrofit;
 
-import example.applicationdemo.http.BaseCallModel;
+import java.util.ArrayList;
+
 import example.applicationdemo.model.MeizhiModel;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
@@ -12,9 +13,10 @@ import retrofit2.http.GET;
  */
 
 public interface RetrofitService{
+
     @GET("api/data/Android/10/1")
     Call<ResponseBody> getAndroidInfo();
 
     @GET("api/data/Android/10/1")
-    Observable<BaseCallModel<MeizhiModel>> getAndroidDate();
+    Observable<ArrayList<MeizhiModel>> getAndroidDate();
 }

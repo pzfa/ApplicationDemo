@@ -1,9 +1,8 @@
 package example.applicationdemo.http;
 
-import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
-import example.applicationdemo.retrofit.ResultListener;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -22,9 +21,9 @@ public class ResponseObserver<T> implements Observer<T>{
 
     @Override
     public void onSubscribe(Disposable d) {
-        if(context instanceof Activity && ((Activity)context).isFinishing()){
-            d.dispose();
-        }
+//        if(context instanceof Activity && ((Activity)context).isFinishing()){
+//            d.dispose();
+//        }
 
     }
 
@@ -39,6 +38,7 @@ public class ResponseObserver<T> implements Observer<T>{
     @Override
     public void onError(Throwable error) {
         String message = error.getMessage();
+        Log.d("aaaa","onError>>>"+error.toString());
         BaseCallModel baseCallModel = new BaseCallModel();
         baseCallModel.setErrno(message);
         setResultData(baseCallModel);

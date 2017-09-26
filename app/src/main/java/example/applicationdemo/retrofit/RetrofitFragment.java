@@ -29,7 +29,7 @@ public class RetrofitFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         retrofitView= (RetrofitView) getView().findViewById(R.id.RetrofitView);
-        retrofitController = new RetrofitController(retrofitView);
+        retrofitController = new RetrofitController(retrofitView,getActivity());
         retrofitView.initView(retrofitController);
     }
 }

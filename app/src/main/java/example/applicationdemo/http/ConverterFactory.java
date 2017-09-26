@@ -22,21 +22,22 @@ public class ConverterFactory extends Converter.Factory {
      * Create an instance using a default {@link Gson} instance for conversion. Encoding to JSON and
      * decoding from JSON (when no charset is specified by a header) will use UTF-8.
      */
-    public static ConverterFactory create() {
-        return create(new Gson());
+    ResponseParser parser;
+    public static ConverterFactory create(ResponseParser parser) {
+        return create(new Gson(),parser);
     }
 
     /**
      * Create an instance using {@code gson} for conversion. Encoding to JSON and
      * decoding from JSON (when no charset is specified by a header) will use UTF-8.
      */
-    public static ConverterFactory create(Gson gson) {
-        return new ConverterFactory(gson);
+    public static ConverterFactory create(Gson gson,ResponseParser parser) {
+        return new ConverterFactory(gson,parser);
     }
 
     private final Gson gson;
 
-    private ConverterFactory(Gson gson) {
+    private ConverterFactory(Gson gson,ResponseParser parser) {
         if (gson == null) throw new NullPointerException("gson == null");
         this.gson = gson;
     }
@@ -45,7 +46,7 @@ public class ConverterFactory extends Converter.Factory {
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
         TypeAdapter<?> adapter = gson.getAdapter(TypeToken.get(type));
-        return new ResponseBodyConverter<>(adapter);
+        return new ResponseBodyConverter<>(adapter, parser);
     }
 
     @Nullable
