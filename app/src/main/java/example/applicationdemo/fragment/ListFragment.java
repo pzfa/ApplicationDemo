@@ -15,6 +15,7 @@ import example.applicationdemo.commom.FragmentService;
 import example.applicationdemo.controller.ListFragmentController;
 import example.applicationdemo.glide.GlideExample;
 import example.applicationdemo.glide.GlideListFragment;
+import example.applicationdemo.mediaplayer.MediaPlayerFragment;
 import example.applicationdemo.mvp.MVPTestActivity;
 import example.applicationdemo.retrofit.RetrofitFragment;
 import example.applicationdemo.rxandroid.RxandroidFragment;
@@ -78,6 +79,7 @@ public class ListFragment extends Fragment implements View.OnClickListener {
                 arrayList.add(new RxandroidFragment());
                 arrayList.add(new MVPTestActivity());
                 arrayList.add(new ServiceFragment());
+                arrayList.add(new MediaPlayerFragment());
                 break;
         }
         listFragmentView = (ListFragmentView) getView().findViewById(R.id.List_fregment);

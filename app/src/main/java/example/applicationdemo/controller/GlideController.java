@@ -38,13 +38,14 @@ public class GlideController implements ListFragment.ViewTag {
         ListFragment listFragment = ListFragment.getListFragment(type);
         listFragment.setViewTag(this);
         arrayList = listFragment.getArrayList();
-        fragmentService.add(glideActivityView.getGlide_list().getId(),listFragment,false,ListFragment.class.getSimpleName(),true);
+        fragmentService.addOrShow(glideActivityView.getGlide_list().getId(),listFragment,true,ListFragment.class.getSimpleName(),false,true);
+//        fragmentService.add(glideActivityView.getGlide_list().getId(),listFragment,true,ListFragment.class.getSimpleName(),true);
     }
 
 
     @Override
     public void tagInt(int inden) {
-        fragmentService.add(glideActivityView.getGlide_list().getId(),arrayList.get(inden),true,arrayList.get(inden).getClass().getSimpleName(),true);
+        fragmentService.addOrShow(glideActivityView.getGlide_list().getId(),arrayList.get(inden),true,arrayList.get(inden).getClass().getSimpleName(),false,true);
 
     }
 }
