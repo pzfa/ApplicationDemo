@@ -40,6 +40,7 @@
         </service>
         <activity android:name=".mediaplayer.MediaPlayerActivity"/>
         <activity android:name=".mediaplayer.BroadcastReceiverActivity"/>
+        <activity android:name=".mediaplayer.player.PlayerActivity"/>
         <activity android:name=".service.ServiceActivity"/>
         <activity android:name=".fragment.FragmentTest1"/>
         <activity android:name=".fragment.FragmentTest2"/>

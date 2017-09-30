@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import example.applicationdemo.R;
+import example.applicationdemo.mediaplayer.player.PlayerActivity;
 
 /**
  * Created by cai.jia on 2017/9/27 0027
@@ -38,6 +39,14 @@ public class MediaPlayerFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getActivity().startActivity(new Intent(getActivity(),BroadcastReceiverActivity.class));
+            }
+        });
+
+        getView().findViewById(R.id.player_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(),PlayerActivity.class));
+
             }
         });
     }
