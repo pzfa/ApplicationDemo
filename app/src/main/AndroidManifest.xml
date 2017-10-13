@@ -25,6 +25,9 @@
             android:name="example.applicationdemo.glide.SimpleGlideModule"
             android:value="GlideModule"
             />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -43,10 +46,15 @@
         <activity android:name=".mediaplayer.player.PlayerActivity"/>
         <activity android:name=".materialdesign.AppBarLayoutActivity"/>
         <activity android:name=".materialdesign.CollapsingToolbarActivity"/>
+        <activity android:name=".notification.NotificationActivity"/>
         <activity android:name=".service.ServiceActivity"/>
         <activity android:name=".fragment.FragmentTest1"/>
         <activity android:name=".fragment.FragmentTest2"/>
         <activity android:name=".glide.GlideActivity"/>
+        <activity android:name=".imageselector.ImageselectorTestActivity"/>
+        <activity android:name=".imageselector.PreviewActivity"/>
+        <activity android:name=".imageselector.ClipImageActivity"/>
+        <activity android:name=".imageselector.ImageSelectorActivity"/>
 
         <receiver android:name=".mediaplayer.BroadcastStatic">
             <intent-filter>
