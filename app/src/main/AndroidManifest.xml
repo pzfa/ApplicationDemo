@@ -55,6 +55,7 @@
         <activity android:name=".imageselector.PreviewActivity"/>
         <activity android:name=".imageselector.ClipImageActivity"/>
         <activity android:name=".imageselector.ImageSelectorActivity"/>
+        <activity android:name=".ExampleActivity"/>
 
         <receiver android:name=".mediaplayer.BroadcastStatic">
             <intent-filter>
