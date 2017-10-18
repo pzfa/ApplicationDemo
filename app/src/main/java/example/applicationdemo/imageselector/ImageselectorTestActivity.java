@@ -63,7 +63,7 @@ public class ImageselectorTestActivity extends AppCompatActivity implements View
                 //多选(不限数量)
                 ImageSelectorUtils.openPhoto(this, REQUEST_CODE);
                 //或者
-//                ImageSelectorUtils.openPhoto(MainActivity.this, REQUEST_CODE, false, 0);
+//                ImageSelectorUtils.openPhoto(JsPlayerTestActivity.this, REQUEST_CODE, false, 0);
                 break;
 
             case R.id.btn_clip:

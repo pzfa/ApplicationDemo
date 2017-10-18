@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import example.applicationdemo.adapter.NewMainAdapter;
 import example.applicationdemo.imageselector.ImageselectorTestActivity;
+import example.applicationdemo.jsplayer.JsPlayerTestActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,10 +27,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         nNewMainAdapter = new NewMainAdapter(this,dataClass);
         nNewMainAdapter.setOnClickListener(this);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         mRecyclerView.setAdapter(nNewMainAdapter);
+
         dataClass.add(ImageselectorTestActivity.class);
         dataClass.add(ExampleActivity.class);
+        dataClass.add(JsPlayerTestActivity.class);
 
         nNewMainAdapter.notifyDataSetChanged();
         Logger.d("aaaa","aaaaaaaaaaaaaaaaaaaa");

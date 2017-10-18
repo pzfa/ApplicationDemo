@@ -3,19 +3,23 @@
     package="example.applicationdemo">
 
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <!--<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>-->
     <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
 
     <application
-        android:allowBackup="true"
         android:name=".DemoApplication"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -23,11 +27,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="example.applicationdemo.glide.SimpleGlideModule"
-            android:value="GlideModule"
-            />
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="${UMENG_CHANNEL_VALUE}" />
+            android:value="GlideModule" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -41,28 +41,48 @@
         <service android:name=".service.TestService">
 
         </service>
-        <activity android:name=".mediaplayer.MediaPlayerActivity"/>
-        <activity android:name=".mediaplayer.BroadcastReceiverActivity"/>
-        <activity android:name=".mediaplayer.player.PlayerActivity"/>
-        <activity android:name=".materialdesign.AppBarLayoutActivity"/>
-        <activity android:name=".materialdesign.CollapsingToolbarActivity"/>
-        <activity android:name=".notification.NotificationActivity"/>
-        <activity android:name=".service.ServiceActivity"/>
-        <activity android:name=".fragment.FragmentTest1"/>
-        <activity android:name=".fragment.FragmentTest2"/>
-        <activity android:name=".glide.GlideActivity"/>
-        <activity android:name=".imageselector.ImageselectorTestActivity"/>
-        <activity android:name=".imageselector.PreviewActivity"/>
-        <activity android:name=".imageselector.ClipImageActivity"/>
-        <activity android:name=".imageselector.ImageSelectorActivity"/>
-        <activity android:name=".ExampleActivity"/>
+
+        <activity android:name=".mediaplayer.MediaPlayerActivity" />
+        <activity android:name=".mediaplayer.BroadcastReceiverActivity" />
+        <activity android:name=".mediaplayer.player.PlayerActivity" />
+        <activity android:name=".materialdesign.AppBarLayoutActivity" />
+        <activity android:name=".materialdesign.CollapsingToolbarActivity" />
+        <activity android:name=".notification.NotificationActivity" />
+        <activity android:name=".service.ServiceActivity" />
+        <activity android:name=".fragment.FragmentTest1" />
+        <activity android:name=".fragment.FragmentTest2" />
+        <activity android:name=".glide.GlideActivity" />
+        <activity android:name=".imageselector.ImageselectorTestActivity" />
+        <activity android:name=".imageselector.PreviewActivity" />
+        <activity android:name=".imageselector.ClipImageActivity" />
+        <activity android:name=".imageselector.ImageSelectorActivity" />
+        <activity android:name=".ExampleActivity" />
+
+        <activity
+            android:name=".jsplayer.DanmuActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+        <activity
+            android:name=".jsplayer.JsPlayerTestActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+
 
         <receiver android:name=".mediaplayer.BroadcastStatic">
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
 
         </receiver>
+
+        <!--  腾讯热更新配置-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.tencent.bugly.hotfix.easy.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
     </application>
 
 </manifest>
