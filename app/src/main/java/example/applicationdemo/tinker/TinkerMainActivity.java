@@ -24,9 +24,9 @@ public class TinkerMainActivity extends AppCompatActivity implements View.OnClic
     /**
      * 如果想更新so，可以将System.loadLibrary替换成Beta.loadLibrary
      */
-    static {
-        Beta.loadLibrary("mylib");
-    }
+//    static {
+//        Beta.loadLibrary("mylib");
+//    }
 
     private TextView tvCurrentVersion;
     private Button btnShowToast;
@@ -57,6 +57,7 @@ public class TinkerMainActivity extends AppCompatActivity implements View.OnClic
         btnUserPatch.setOnClickListener(this);
         btnCheckUpgrade = (Button) findViewById(R.id.btnCheckUpgrade);
         btnCheckUpgrade.setOnClickListener(this);
+
 
         tvCurrentVersion.setText("当前版本：" + getCurrentVersion(this));
     }
@@ -96,6 +97,9 @@ public class TinkerMainActivity extends AppCompatActivity implements View.OnClic
                 break;
             case R.id.btnCheckUpgrade:
                 Beta.checkUpgrade();
+                break;
+            case R.id.cole:// 清除补丁
+                Beta.cleanTinkerPatch();
                 break;
         }
     }

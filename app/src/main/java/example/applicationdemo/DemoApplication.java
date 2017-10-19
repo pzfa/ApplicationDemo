@@ -38,14 +38,17 @@ public class DemoApplication extends MultiDexApplication {
     }
 
     private void initBeta() {
+
+        // 设置为开发设备
+//        Bugly.setIsDevelopmentDevice(this, true);
       // 设置是否开启热更新能力，默认为true
         Beta.enableHotfix = true;
         // 设置是否自动下载补丁
-        Beta.canAutoDownloadPatch = true;
+        Beta.canAutoDownloadPatch = false;
         // 设置是否提示用户重启
         Beta.canNotifyUserRestart = true;
         // 设置是否自动合成补丁
-        Beta.canAutoPatch = true;
+        Beta.canAutoPatch = false;
 
         /**
          *  全量升级状态回调

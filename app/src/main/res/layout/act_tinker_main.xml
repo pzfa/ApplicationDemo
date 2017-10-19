@@ -5,7 +5,6 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:gravity="center_horizontal"
 
     android:orientation="vertical"
@@ -57,6 +56,20 @@
     <Button
         android:id="@+id/btnKillSelf"
         android:text="退出程序"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="6666666666"
+        android:background="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="清除补丁包"
+        android:id="@+id/cole"
+        android:background="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

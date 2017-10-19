@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import example.applicationdemo.adapter.NewMainAdapter;
 import example.applicationdemo.imageselector.ImageselectorTestActivity;
 import example.applicationdemo.jsplayer.JsPlayerTestActivity;
+import example.applicationdemo.tinker.TinkerMainActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dataClass.add(ImageselectorTestActivity.class);
         dataClass.add(ExampleActivity.class);
         dataClass.add(JsPlayerTestActivity.class);
+        dataClass.add(TinkerMainActivity.class);
 
         nNewMainAdapter.notifyDataSetChanged();
         Logger.d("aaaa","aaaaaaaaaaaaaaaaaaaa");

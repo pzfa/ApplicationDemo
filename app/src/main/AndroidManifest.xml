@@ -73,6 +73,8 @@
 
         </receiver>
 
+        <activity android:name=".tinker.TinkerMainActivity"/>
+
         <!--  腾讯热更新配置-->
         <provider
             android:name="android.support.v4.content.FileProvider"
